@@ -9,9 +9,9 @@ import { Modal } from "../components/modals/Modal"
 import { ErrorPrompt } from "../components/modals/prompts/ErrorPrompt"
 
 export const Dashboard = () => {
-  const {user, fetchUserDetails, userFetchError } = useContext(UserContext)
-  const {token} = useContext(AuthContext)
-  const [isLoading,setIsLoading] = useState(true)
+  const {user, fetchUserDetails, userFetchError } = useContext(UserContext),
+  {token} = useContext(AuthContext),
+  [isLoading,setIsLoading] = useState(true)
 
 
   useEffect(() => {
@@ -29,7 +29,6 @@ export const Dashboard = () => {
     }
   }, [fetchUserDetails, token, user]);
 
-  // console.log(isLoading)
 
   if(checkAuthSession() === false) return <Navigate to="/login" />
 

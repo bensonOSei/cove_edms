@@ -21,6 +21,14 @@ export const deleteAuthSession = () => {
     localStorage.removeItem("token");
 };
 
+export const saveToStorage = (key, value) => {
+    // check if value is an object
+    if(typeof value === "object"){
+        value = JSON.stringify(value);
+    }
+    
+    localStorage.setItem(key, value);
+}
 
 
 // Path: src\utils\constants.js

@@ -1,6 +1,14 @@
 import { Input } from "../components/form/Input";
 import { useState } from "react";
 import { Select } from "../components/form/Select";
+import {
+  BRANCH,
+	CONTRACT_FREQUENCY,
+	DESIGNATIONS,
+	EMPLOYMENT_TYPE,
+	JOB_GRADE,
+} from "../utils/constants";
+import SubmitButton from "../components/form/SubmitButton";
 export const AddEmployees = () => {
 	const [employeeDetails, setEmployeeDetails] = useState({});
 
@@ -11,9 +19,13 @@ export const AddEmployees = () => {
 		});
 	};
 
+	const save = (e) => {
+		e.preventDefault();
+		console.log(employeeDetails);
+	}
 	return (
 		<div className="mt-3 w-full">
-			<h1 className="text-2xl font-bold p-2">Add Employee</h1>
+			<h1 className="text-2xl font-bold p-2 text-blue-800">Add Employee</h1>
 			{/* <p>* required</p> */}
 
 			<div className="overflow-y-auto">
@@ -152,9 +164,76 @@ export const AddEmployees = () => {
 						</div>
 					</div>
 
-            <h2 className="text-2xl font-bold text-blue-600 mt-8">Employment Details</h2>
-          <div className="flex items-stretch gap-4 mt-3">
-            
+					<h2 className="text-2xl font-bold text-blue-600 mt-8">
+						Employment Details
+					</h2>
+					<div className="flex items-stretch gap-4 mt-3">
+						<div className="bg-blue-50 border border-blue-100 p-3 rounded-lg flex-1">
+							<div className="flex items-center gap-2 mb-3">
+								<Select
+									label="Designation"
+									id="designation"
+									onChange={handleOnChange}
+									required
+									options={DESIGNATIONS}
+								/>
+
+								<Select
+									label="Job Grade"
+									id="job_grade"
+									onChange={handleOnChange}
+									required
+									options={JOB_GRADE}
+								/>
+
+								<Select
+									label="Employment Type"
+									id="employment_type"
+									onChange={handleOnChange}
+									required
+									options={EMPLOYMENT_TYPE}
+								/>
+							</div>
+							<div className="flex items-center gap-2 mb-3">
+								<Input
+									label="Head of Department Name"
+									id="head_of_department"
+									onChange={handleOnChange}
+									required
+									placeholder="Enter name of head of department"
+								/>
+
+								<Select
+									label="Contract Frequency"
+									id="contract_freq_code"
+									onChange={handleOnChange}
+									required
+									options={CONTRACT_FREQUENCY}
+								/>
+
+								<Input
+									label="Contract Duration"
+									id="contract_duration"
+									type="number"
+									onChange={handleOnChange}
+									required
+									placeholder="Enter duration of contract"
+								/>
+
+								<Select
+									label="Branch"
+									id="branch"
+									onChange={handleOnChange}
+									required
+									options={BRANCH}
+								/>
+							</div>
+						</div>
+					</div>
+          
+          <div className="flex gap-2 w-full max-w-md py-3" >
+            <SubmitButton text="Employ" />
+            <SubmitButton text="Save and Continue later" onClick={save} />
           </div>
 				</form>
 			</div>

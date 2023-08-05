@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import { motion } from "framer-motion"
 
-const SubmitButton = ({isSubmitting, text}) => {
+const SubmitButton = ({isSubmitting = false, text, onClick}) => {
   return (
-    <div className="mb-4">
+    <div className="mb-4 w-full">
     <button
         disabled={isSubmitting}
+        onClick={onClick}
         className={`flex items-center justify-center w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-md ${isSubmitting && "opacity-50"}`}
         type="submit">
             {isSubmitting ? (
@@ -27,7 +28,7 @@ const SubmitButton = ({isSubmitting, text}) => {
                     </span>
                 </motion.div>
             ) : (
-                {text}
+                `${text}`
             )}
     </button>
 </div>
@@ -35,8 +36,9 @@ const SubmitButton = ({isSubmitting, text}) => {
 }
 
 SubmitButton.propTypes = {
-    isSubmitting: PropTypes.bool.isRequired,
+    isSubmitting: PropTypes.bool,
     text: PropTypes.string.isRequired,
+    onClick: PropTypes.func
 }
 
 export default SubmitButton

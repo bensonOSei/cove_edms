@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 export const Modal = ({ element, closeModal }) => {
 	return (
-		<div className="fixed top-0 left-0 bg-black/40 w-full h-full grid place-items-center">
+		<div className="fixed top-0 left-0 bg-black/40 z-50  w-full h-full grid place-items-center">
 			<motion.div
 				initial={{ opacity: 0, rotate: -3 }}
 				animate={{ opacity: 1, rotate: 0 }}

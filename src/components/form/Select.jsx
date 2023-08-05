@@ -18,7 +18,7 @@ export const Select = ({ onChange, id, label, type ="text", required = false, op
 				onChange={onChange}
                 required={required}
 			>
-                <option disabled selected >Select {label}</option>
+                <option disabled defaultValue={''} >Select {label}</option>
                 {
                     options.map((option, index) => (
                         <option key={index} value={option.value}>{option.label}</option>
