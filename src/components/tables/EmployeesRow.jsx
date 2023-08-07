@@ -24,7 +24,7 @@ export const EmployeesRow = ({ list }) => {
 					<td>{employee.employment.branch}</td>
 					<td>
 						<Link
-							to={`employee/${employee.id}`}
+							to={`/${employee.id}`}
 							className="bg-slate-100 hover:bg-slate-200 font-bold py-2 px-4 rounded">
 							View
 						</Link>
