@@ -5,6 +5,7 @@ import { Dashboard } from './pages/Dashboard'
 import { ProtectedRoute } from './utils/ProtectedRoute'
 import { Employees } from './pages/Employees'
 import { AddEmployees } from './pages/AddEmployees'
+import { EmployeeDetails } from './pages/EmployeeDetails'
 
 function App() {
 
@@ -15,6 +16,9 @@ function App() {
           <Route path="/" element={<Dashboard />} exact >
             <Route index element={<Employees />} />
             <Route path='add' element={<AddEmployees />} />
+            <Route path='employee' >
+              <Route path=':id' element={<EmployeeDetails />} />
+            </Route>
           </Route>
         </Route>
         <Route path="/login" element={<Login />} />
