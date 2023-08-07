@@ -1,4 +1,7 @@
-export const BACKEND_URL = "http://127.0.0.1:8000/api";
+export const BACKEND_URL = "http://127.0.0.1:8000";
+
+export const BACKEND_URL_API = BACKEND_URL + "/api";
+
 
 export const DESIGNATIONS = [
 	{ value: "CEO", label: "CEO" },
@@ -38,3 +41,13 @@ export const CONTRACT_FREQUENCY = [
     { value: 3, label: "Monthly" },
     { value: 4, label: "Yearly" },
 ];
+
+
+export const TITLES = [
+	{ value: "Mr", label: "Mr" },
+	{ value: "Mrs", label: "Mrs" },
+	{ value: "Miss", label: "Miss" },
+	{ value: "Dr", label: "Dr" },
+	{ value: "Prof", label: "Prof" },
+
+]

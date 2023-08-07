@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import PropTypes from "prop-types";
-import { BACKEND_URL } from "../../utils/constants";
+import { BACKEND_URL_API } from "../../utils/constants";
 import axios from "axios";
 import { deleteAuthSession } from "../../utils/helpers";
 
@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
 
         try {
             setFetching(true)
-            const { data } = await axios.get(`${BACKEND_URL}/user`, {
+            const { data } = await axios.get(`${BACKEND_URL_API}/user`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     Accept: "application/json",

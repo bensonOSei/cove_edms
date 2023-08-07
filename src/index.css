@@ -6,11 +6,19 @@
 @layer base {
   body {
     font-family: "Raleway", sans-serif;
-    color: #333;
+    @apply text-blue-950;
   }
 
   input::file-selector-button {
     visibility: hidden;
+  }
+
+  input {
+    font:inherit;
+  }
+  
+  input::placeholder {
+    @apply text-slate-300;
   }
 
   input[type='file'] {

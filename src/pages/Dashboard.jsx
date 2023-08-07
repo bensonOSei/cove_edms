@@ -36,7 +36,7 @@ export const Dashboard = () => {
     <div className="flex h-screen">
       {userFetchError && <Modal element={<ErrorPrompt message="Failed to get user details" />} />}
       <SideNav />
-      <div className="w-full bg-slate-50 h-full p-5 overflow-auto">
+      <div className="w-full bg-slate-50 h-full p-5 overflow-auto relative">
         <DashHeader user={user} isFetching={isLoading} />
         <Outlet />
       </div>

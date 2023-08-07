@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { UserContext } from "../contexts/UserContext";
-import { BACKEND_URL } from "../../utils/constants";
+import { BACKEND_URL_API } from "../../utils/constants";
 import axios from "axios";
 import {
 	checkAuthSession,
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 		// if success, set isLoggedIn to true
 		// else, set isLoggedIn to false
 		axios
-			.post(`${BACKEND_URL}/login`, inputs)
+			.post(`${BACKEND_URL_API}/login`, inputs)
 			.then((res) => {
 				createAuthSession(res.data);
 				// console.log(res.data);
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 		// if success, set isLoggedIn to false
 		// else, set isLoggedIn to true
 		axios
-			.post(`${BACKEND_URL}/logout`, null, {
+			.post(`${BACKEND_URL_API}/logout`, null, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
