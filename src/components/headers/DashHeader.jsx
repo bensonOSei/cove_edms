@@ -1,4 +1,4 @@
-import { faSignOutAlt, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contextProviders/contexts/AuthContext";
@@ -24,10 +24,10 @@ export const DashHeader = ({ user, isFetching }) => {
 		}
 	}, [isLoggingOut, authError]);
 
-	if(isFetching) return <DashHeaderLoader />
+	if (isFetching) return <DashHeaderLoader />;
 
 	return (
-		<div className="bg-blue-800/5 w-full py-3 rounded-lg flex items-center justify-between border border-slate-100 px-6">
+		<div className="bg-slate-100 w-full py-3 rounded-lg flex items-center justify-between border border-slate-200 px-6">
 			<div className="flex gap-3">
 				<h1 className="text-2xl font-semibold text-blue-900">
 					Dashboard
@@ -42,10 +42,15 @@ export const DashHeader = ({ user, isFetching }) => {
 					disabled={isLoggingOut}
 					className="hover:bg-blue-600/20 p-2 rounded-md">
 					{isLoggingOut ? (
-						<FontAwesomeIcon
-							icon={faSpinner}
-							className="animate-spin"
-						/>
+						<lord-icon
+							src="https://cdn.lordicon.com/xjovhxra.json"
+							trigger="loop"
+							colors="primary:#1e3a8a,secondary:#08a88a"
+							stroke="60"
+							style={{
+								width: "20px",
+								height: "20px",
+							}}></lord-icon>
 					) : (
 						<FontAwesomeIcon
 							icon={faSignOutAlt}

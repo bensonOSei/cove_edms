@@ -10,13 +10,15 @@ export const Modal = ({ element, closeModal }) => {
 				animate={{ opacity: 1, rotate: 0 }}
 				exit={{ opacity: 0, rotate: 3 }}
 				className="bg-white rounded-md p-6 ring-4 shadow-2xl relative backdrop-blur-md w-full max-w-md">
-				<motion.button
-					onClick={closeModal}
-					className="absolute top-2 right-3 text-lg"
-					whileHover={{ scale: 1.1 }}
-					whileTap={{ scale: 0.9 }}>
-					<FontAwesomeIcon icon={faTimes} />
-				</motion.button>
+				{closeModal === null && (
+					<motion.button
+						onClick={closeModal}
+						className="absolute top-2 right-3 text-lg"
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}>
+						<FontAwesomeIcon icon={faTimes} />
+					</motion.button>
+				)}
 				{element}
 			</motion.div>
 		</div>
@@ -25,5 +27,5 @@ export const Modal = ({ element, closeModal }) => {
 
 Modal.propTypes = {
 	element: PropTypes.element.isRequired,
-	closeModal: PropTypes.func.isRequired,
+	closeModal: PropTypes.func,
 };
