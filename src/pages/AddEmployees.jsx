@@ -116,6 +116,12 @@ export const AddEmployees = () => {
 			return;
 		}
 
+		// check if passport pic is set
+		if(formData.passport_pic === null ) {
+			displayAlert("Please add a passport size picture of employee");
+			return;
+		}
+
 		employ();
 	};
 
