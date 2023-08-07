@@ -1,4 +1,4 @@
-import { EmployeesTable } from "../components/buttons/EmployeesTable";
+import { EmployeesTable } from "../components/tables/EmployeesTable";
 
 export const Employees = () => {
 	return (

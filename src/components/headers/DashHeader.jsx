@@ -5,9 +5,9 @@ import { AuthContext } from "../../contextProviders/contexts/AuthContext";
 import PropTypes from "prop-types";
 import { Modal } from "../modals/Modal";
 import { ErrorPrompt } from "../modals/prompts/ErrorPrompt";
-import { DashHeaderLoader } from "./DashHeaderLoader";
+// import { DashHeaderLoader } from "./DashHeaderLoader";
 
-export const DashHeader = ({ user, isFetching }) => {
+export const DashHeader = ({ user }) => {
 	const { logout, authError } = useContext(AuthContext);
 	const [isLoggingOut, setIsLoggingOut] = useState(false);
 	const [error, setError] = useState(false);
@@ -24,7 +24,7 @@ export const DashHeader = ({ user, isFetching }) => {
 		}
 	}, [isLoggingOut, authError]);
 
-	if (isFetching) return <DashHeaderLoader />;
+	// if (isFetching) return <DashHeaderLoader />;
 
 	return (
 		<div className="bg-slate-100 w-full py-3 rounded-lg flex items-center justify-between border border-slate-200 px-6">
@@ -67,5 +67,5 @@ export const DashHeader = ({ user, isFetching }) => {
 
 DashHeader.propTypes = {
 	user: PropTypes.object.isRequired,
-	isFetching: PropTypes.bool.isRequired,
+	// isFetching: PropTypes.bool.isRequired,
 };
